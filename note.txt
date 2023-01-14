@@ -1,0 +1,19 @@
+Info needed
+Grid
+    First Name
+    Last Name
+    email
+    city & state
+    profile pic
+Modal extras
+    Address
+    Phone
+    Birthday
+
+Based on these, include:
+    name
+    location 
+    email
+    dob
+    picture   
+    cell
