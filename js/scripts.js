@@ -1,5 +1,5 @@
 fetch(
-  'https://randomuser.me/api/?results=3&nat=us&inc=name,location,email,phone,dob,picture'
+  'https://randomuser.me/api/?results=12&nat=us&inc=name,location,email,phone,dob,picture'
 )
   .then((response) => response.json())
   .then((data) => {
@@ -7,6 +7,12 @@ fetch(
     console.log(randomUserArray);
 
     generateUserCards(randomUserArray);
+
+    let card = document.querySelector('.card');
+    console.log(card);
+    card.addEventListener('click', (e) => {
+      console.log(e.currentTarget);
+    });
   });
 
 function generateUserCards(array) {
@@ -19,7 +25,7 @@ function generateUserCards(array) {
                 <img class="card-img" src="${results.picture.medium}" alt="profile picture">
             </div>
             <div class="card-info-container">
-                <h3 id="name" class="card-name cap">${results.name.first} ${results.name.last}</h3>
+                <h3 class="card-name cap">${results.name.first} ${results.name.last}</h3>
                 <p class="card-text">${results.email}</p>
                 <p class="card-text cap">${results.location.city}, ${results.location.state}</p>
             </div>
@@ -28,5 +34,28 @@ function generateUserCards(array) {
     )
     .join('');
 
-  document.getElementById('gallery').innerHTML = galleryHTML;
+  document
+    .getElementById('gallery')
+    .insertAdjacentHTML('beforeend', galleryHTML);
+}
+
+function generateModal() {
+  let modalHTML = `
+        <div class="modal-container">
+            <div class="modal">
+                <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+                <div class="modal-info-container">
+                    <img class="modal-img" src="https://placehold.it/125x125" alt="profile picture">
+                    <h3 id="name" class="modal-name cap">name</h3>
+                    <p class="modal-text">email</p>
+                    <p class="modal-text cap">city</p>
+                    <hr>
+                    <p class="modal-text">(555) 555-5555</p>
+                    <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
+                    <p class="modal-text">Birthday: 10/21/2015</p>
+                </div>
+            </div>
+        </div>`;
+
+  document.getElementById('gallery').insertAdjacentHTML('afterend', modalHTML);
 }
