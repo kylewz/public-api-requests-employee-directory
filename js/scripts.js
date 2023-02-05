@@ -8,10 +8,13 @@ fetch(
 
     generateUserCards(randomUserArray);
 
-    let card = document.querySelector('.card');
-    console.log(card);
-    card.addEventListener('click', (e) => {
-      console.log(e.currentTarget);
+    let gallery = document.querySelector('#gallery');
+    let allCards = gallery.children;
+    const cardsArray = Array.from(allCards);
+    console.log(gallery);
+    gallery.addEventListener('click', (e) => {
+      console.log(e.relatedTarget);
+      // console.log(cardsArray.indexOf(e.currentTarget));
     });
   });
 
