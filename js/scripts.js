@@ -21,9 +21,9 @@ fetch(
 function generateUserCards(array) {
   let galleryHTML = array
     .map(
-      (results) =>
+      (results, index) =>
         `
-        <div class="card">
+        <div class="card" id="card-${index}">
             <div class="card-img-container">
                 <img class="card-img" src="${results.picture.medium}" alt="profile picture">
             </div>
