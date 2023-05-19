@@ -1,3 +1,5 @@
+let gallery = document.getElementById('gallery');
+
 fetch(
   'https://randomuser.me/api/?results=12&nat=us&inc=name,location,email,phone,dob,picture'
 )
@@ -51,28 +53,26 @@ function generateUserCards(array) {
     )
     .join('');
 
-  document
-    .getElementById('gallery')
-    .insertAdjacentHTML('beforeend', galleryHTML);
+  gallery.insertAdjacentHTML('beforeend', galleryHTML);
 }
 
 function generateModal(array) {
   let modalHTML = `
-  <div class="modal-container">
+  <div class="modal-container">  
     <div class="modal">
-        <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
-        <div class="modal-info-container">
-            <img class="modal-img" src="${array[0].picture.large}" alt="profile picture">
-            <h3 id="name" class="modal-name cap">${array[0].name.first} ${array[0].name.last}</h3>
-            <p class="modal-text">${array[0].email}</p>
-            <p class="modal-text cap">${array[0].location.city}</p>
-            <hr>
-            <p class="modal-text">${array[0].phone}</p>
-            <p class="modal-text">${array[0].location.street.number} ${array[0].location.street.name}, ${array[0].location.city}, ${array[0].location.state} ${array[0].location.postcode}</p>
-            <p class="modal-text">Birthday: ${array[0].dob.date}</p>
-        </div>
+      <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+      <div class="modal-info-container">
+          <img class="modal-img" src="${array[0].picture.large}" alt="profile picture">
+          <h3 id="name" class="modal-name cap">${array[0].name.first} ${array[0].name.last}</h3>
+          <p class="modal-text">${array[0].email}</p>
+          <p class="modal-text cap">${array[0].location.city}</p>
+          <hr>
+          <p class="modal-text">${array[0].phone}</p>
+          <p class="modal-text">${array[0].location.street.number} ${array[0].location.street.name}, ${array[0].location.city}, ${array[0].location.state} ${array[0].location.postcode}</p>
+          <p class="modal-text">Birthday: ${array[0].dob.date}</p>
+      </div>
     </div>
   </div>`;
 
-  document.getElementById('gallery').insertAdjacentHTML('beforeend', modalHTML);
+  gallery.insertAdjacentHTML('beforeend', modalHTML);
 }
