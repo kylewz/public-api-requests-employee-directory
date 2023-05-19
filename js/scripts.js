@@ -5,6 +5,10 @@ fetch(
   .then((data) => {
     const randomUserArray = data.results;
     console.log(randomUserArray);
+    randomUserArray.forEach((element) => {
+      element.dob.date = formatDOB(element.dob.date);
+      console.log(element.dob.date);
+    });
 
     generateUserCards(randomUserArray);
 
@@ -19,6 +23,14 @@ fetch(
       console.log(cardsArray.indexOf(e.currentTarget));
     });
   });
+
+function formatDOB(date) {
+  let year = date.slice(0, 4);
+  let month = date.slice(5, 7);
+  let day = date.slice(8, 10);
+
+  return `${month}/${day}/${year}`;
+}
 
 function generateUserCards(array) {
   let galleryHTML = array
