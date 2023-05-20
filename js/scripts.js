@@ -21,7 +21,7 @@ fetch(
 
     gallery.addEventListener('click', (e) => {
       console.log(e.relatedTarget);
-      generateModal(randomUserArray);
+      generateModal(randomUserArray, 0);
       console.log(cardsArray.indexOf(e.currentTarget));
     });
   });
@@ -56,23 +56,23 @@ function generateUserCards(array) {
   gallery.insertAdjacentHTML('beforeend', galleryHTML);
 }
 
-function generateModal(array) {
+function generateModal(array, index) {
   let modalHTML = `
   <div class="modal-container">  
     <div class="modal">
       <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
       <div class="modal-info-container">
-          <img class="modal-img" src="${array[0].picture.large}" alt="profile picture">
-          <h3 id="name" class="modal-name cap">${array[0].name.first} ${array[0].name.last}</h3>
-          <p class="modal-text">${array[0].email}</p>
-          <p class="modal-text cap">${array[0].location.city}</p>
+          <img class="modal-img" src="${array[index].picture.large}" alt="profile picture">
+          <h3 id="name" class="modal-name cap">${array[index].name.first} ${array[index].name.last}</h3>
+          <p class="modal-text">${array[index].email}</p>
+          <p class="modal-text cap">${array[index].location.city}</p>
           <hr>
-          <p class="modal-text">${array[0].phone}</p>
-          <p class="modal-text">${array[0].location.street.number} ${array[0].location.street.name}, ${array[0].location.city}, ${array[0].location.state} ${array[0].location.postcode}</p>
-          <p class="modal-text">Birthday: ${array[0].dob.date}</p>
+          <p class="modal-text">${array[index].phone}</p>
+          <p class="modal-text">${array[index].location.street.number} ${array[index].location.street.name}, ${array[index].location.city}, ${array[index].location.state} ${array[index].location.postcode}</p>
+          <p class="modal-text">Birthday: ${array[index].dob.date}</p>
       </div>
     </div>
   </div>`;
 
-  gallery.insertAdjacentHTML('beforeend', modalHTML);
+  gallery.insertAdjacentHTML('afterend', modalHTML);
 }
