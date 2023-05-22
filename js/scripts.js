@@ -14,22 +14,21 @@ fetch(
 
     generateUserCards(randomUserArray);
 
-    let gallery = document.querySelector('#gallery');
     let allCards = gallery.children;
     const cardsArray = Array.from(allCards);
-    console.log(gallery);
+    // console.log(gallery);
 
-    gallery.addEventListener('click', (e) => {
-      console.log(e.relatedTarget);
+    gallery.firstElementChild.addEventListener('click', (e) => {
+      console.log(e.currentTarget);
       generateModal(randomUserArray, 0);
       console.log(cardsArray.indexOf(e.currentTarget));
     });
   });
 
-function formatDOB(date) {
-  let year = date.slice(0, 4);
-  let month = date.slice(5, 7);
-  let day = date.slice(8, 10);
+function formatDOB(dob) {
+  let year = dob.slice(0, 4);
+  let month = dob.slice(5, 7);
+  let day = dob.slice(8, 10);
 
   return `${month}/${day}/${year}`;
 }
@@ -72,7 +71,15 @@ function generateModal(array, index) {
           <p class="modal-text">Birthday: ${array[index].dob.date}</p>
       </div>
     </div>
+    <div class="modal-btn-container">
+        <button type="button" id="modal-prev" class="modal-prev btn">Prev</button>
+        <button type="button" id="modal-next" class="modal-next btn">Next</button>
+    </div>
   </div>`;
 
   gallery.insertAdjacentHTML('afterend', modalHTML);
+
+  document.getElementById('modal-close-btn').addEventListener('click', () => {
+    document.querySelector('.modal-container').remove();
+  });
 }
