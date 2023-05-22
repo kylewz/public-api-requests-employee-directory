@@ -6,10 +6,9 @@ fetch(
   .then((response) => response.json())
   .then((data) => {
     const randomUserArray = data.results;
-    console.log(randomUserArray);
+    // console.log(randomUserArray);
     randomUserArray.forEach((element) => {
       element.dob.date = formatDOB(element.dob.date);
-      console.log(element.dob.date);
     });
 
     generateUserCards(randomUserArray);
@@ -19,7 +18,7 @@ fetch(
     // console.log(gallery);
 
     gallery.firstElementChild.addEventListener('click', (e) => {
-      console.log(e.currentTarget);
+      // console.log(e.currentTarget);
       generateModal(randomUserArray, 0);
       console.log(cardsArray.indexOf(e.currentTarget));
     });
