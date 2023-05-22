@@ -17,11 +17,13 @@ fetch(
     const cardsArray = Array.from(allCards);
     // console.log(gallery);
 
-    gallery.firstElementChild.addEventListener('click', (e) => {
-      // console.log(e.currentTarget);
-      generateModal(randomUserArray, 0);
-      console.log(cardsArray.indexOf(e.currentTarget));
-    });
+    cardsArray.map((card, index) =>
+      card.addEventListener('click', (e) => {
+        // console.log(e.currentTarget);
+        generateModal(randomUserArray, index);
+        console.log(cardsArray.indexOf(e.currentTarget));
+      })
+    );
   });
 
 function formatDOB(dob) {
