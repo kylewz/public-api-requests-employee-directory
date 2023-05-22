@@ -15,13 +15,10 @@ fetch(
 
     let allCards = gallery.children;
     const cardsArray = Array.from(allCards);
-    // console.log(gallery);
 
     cardsArray.map((card, index) =>
       card.addEventListener('click', (e) => {
-        // console.log(e.currentTarget);
         generateModal(randomUserArray, index);
-        console.log(cardsArray.indexOf(e.currentTarget));
       })
     );
   });
@@ -80,6 +77,26 @@ function generateModal(array, index) {
 
   gallery.insertAdjacentHTML('afterend', modalHTML);
 
+  //Check boundaries, prev and next buttons unavailable if at edges
+  if (index === 0) {
+    document.getElementById('modal-prev').style.display = 'none';
+  }
+  if (index === array.length - 1) {
+    document.getElementById('modal-next').style.display = 'none';
+  }
+
+  //Add listener to Prev and Next buttons to display respective user modal
+  document.getElementById('modal-prev').addEventListener('click', () => {
+    document.querySelector('.modal-container').remove();
+    generateModal(array, index - 1);
+  });
+
+  document.getElementById('modal-next').addEventListener('click', () => {
+    document.querySelector('.modal-container').remove();
+    generateModal(array, index + 1);
+  });
+
+  //Close the modal with close btn or by clicking outside of modal
   document.getElementById('modal-close-btn').addEventListener('click', () => {
     document.querySelector('.modal-container').remove();
   });
