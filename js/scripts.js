@@ -25,6 +25,7 @@ fetch(
     );
   });
 
+// Formats the API user DOB for display in modal
 function formatDOB(dob) {
   let year = dob.slice(0, 4);
   let month = dob.slice(5, 7);
