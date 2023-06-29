@@ -13,8 +13,8 @@ fetch(
 
     generateUserCards(randomUserArray);
 
-    let allCards = gallery.children;
-    const cardsArray = Array.from(allCards);
+    let userCards = gallery.children;
+    const cardsArray = Array.from(userCards);
 
     cardsArray.map((card, index) =>
       card.addEventListener('click', (e) => {
@@ -96,8 +96,12 @@ function generateModal(array, index) {
     generateModal(array, index + 1);
   });
 
-  //Close the modal with close btn or by clicking outside of modal
+  //Close the modal with close btn
   document.getElementById('modal-close-btn').addEventListener('click', () => {
-    document.querySelector('.modal-container').remove();
+    document.querySelector('.modal-container').classList.toggle('show-modal');
   });
+
+  setTimeout(() => {
+    document.querySelector('.modal-container').classList.toggle('show-modal');
+  }, 0);
 }
