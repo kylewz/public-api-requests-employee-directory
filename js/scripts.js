@@ -13,9 +13,11 @@ fetch(
 
     generateUserCards(randomUserArray);
 
+    // create array for use in generating modals per card clicked
     let userCards = gallery.children;
     const cardsArray = Array.from(userCards);
 
+    // Generate a modal for the clicked user card
     cardsArray.map((card, index) =>
       card.addEventListener('click', (e) => {
         generateModal(randomUserArray, index);
