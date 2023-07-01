@@ -101,10 +101,10 @@ function generateModal(array, index) {
 
   //Close the modal with close btn
   document.getElementById('modal-close-btn').addEventListener('click', () => {
-    document.querySelector('.modal-container').classList.toggle('show-modal');
+    document.querySelector('.modal-container').remove();
   });
 
-  setTimeout(() => {
+  /*setTimeout(() => {
     document.querySelector('.modal-container').classList.toggle('show-modal');
-  }, 0);
+  }, 0);*/
 }
