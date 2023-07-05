@@ -25,7 +25,7 @@ fetch(
     );
   });
 
-// Formats the API user DOB for display in modal
+// Formats the API user DOB for display in modal as mm/dd/yyyy
 function formatDOB(dob) {
   let year = dob.slice(0, 4);
   let month = dob.slice(5, 7);
@@ -103,8 +103,4 @@ function generateModal(array, index) {
   document.getElementById('modal-close-btn').addEventListener('click', () => {
     document.querySelector('.modal-container').remove();
   });
-
-  /*setTimeout(() => {
-    document.querySelector('.modal-container').classList.toggle('show-modal');
-  }, 0);*/
 }
