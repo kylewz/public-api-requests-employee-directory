@@ -94,7 +94,7 @@ header h1 {
   border: 1px solid rgba(50, 50, 50, 0.3);
   transition: 0.4s ease-out;
   overflow: hidden;
-  animation: fade-in 0.4s ease;
+  animation: zoom-in 0.4s ease;
 }
 
 .card-img {
@@ -133,7 +133,6 @@ header h1 {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  animation: fade-in 0.8s ease;
 }
 
 .modal {
@@ -146,11 +145,6 @@ header h1 {
   background: rgba(255, 255, 255, 1);
   border-radius: 0.25em;
   border: 1px solid rgba(100, 100, 100, 0.3);
-}
-
-.show-modal {
-  opacity: 100;
-  visibility: visible;
 }
 
 .modal-close-btn {
@@ -263,11 +257,15 @@ header h1 {
   }
 }
 
-@keyframes fade-in {
+/* ====================
+  Custom Animation
+======================= */
+
+@keyframes zoom-in {
   0% {
-    opacity: 0;
+    scale: 0;
   }
   100% {
-    opacity: 1;
+    scale: 1;
   }
 }

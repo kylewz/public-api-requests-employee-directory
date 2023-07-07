@@ -104,7 +104,6 @@ function generateModal(array, index) {
     nextBtn.style.display = 'none';
   }
 
-  /*
   //Add listener to Prev and Next buttons to display respective user modal
   prevBtn.addEventListener('click', () => {
     modalContainer.remove();
@@ -119,20 +118,5 @@ function generateModal(array, index) {
   //Close the modal with close btn
   document.getElementById('modal-close-btn').addEventListener('click', () => {
     modalContainer.remove();
-  });
-  */
-
-  modalContainer.addEventListener('click', (e) => {
-    console.log(e.target);
-    console.log(e.currentTarget);
-
-    modalContainer.remove();
-
-    if (e.target.id === 'modal-next') {
-      generateModal(array, index + 1);
-    } else if (e.target.id === 'modal-prev') {
-      generateModal(array, index - 1);
-    } else if (e.target.id === 'modal-close-btn') {
-    }
   });
 }
