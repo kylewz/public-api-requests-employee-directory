@@ -8,6 +8,8 @@
 // Variables for the fetch function
 let gallery = document.getElementById('gallery');
 
+// Pull 12 random users from the Random User generator API and display card grid
+// Pull info: profile image, first and last name, location, email, phone, dob
 fetch(
   'https://randomuser.me/api/?results=12&nat=us&inc=name,location,email,phone,dob,picture'
 )
